@@ -10,9 +10,22 @@ cases: {
       data: =~"^0x[A-Fa-f0-9]{64}$",
       error?: _|_,
     }
-    $1: { 
-      data: uint, 
-      error?: _|_ 
+    $1: {
+      data: uint,
+      error?: _|_
+    }
+  }
+  case2: {
+    $0: {
+      data: {
+        txReceipt: string,
+        ipfsHash: "QmPhAJz5QbidN3LgT2eDiu6Z3nCFs2gYQMbjgEAncrGsis"
+      },
+      error?: _|_,
+    }
+    $1: {
+      data: "Hello from IPFS!",
+      error?: _|_,
     }
   }
 }

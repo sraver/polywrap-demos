@@ -1,4 +1,5 @@
 #import { Module, Connection } into Ethereum from "wrap://ens/ethereum.polywrap.eth"
+#import { Module } into Ipfs from "wrap://ens/ipfs.polywrap.eth"
 
 type Module {
     """
@@ -28,4 +29,24 @@ type Module {
         """
         connection: Ethereum_Connection
     ): String!
+
+    getIpfsData(
+        address: String!
+        connection: Ethereum_Connection
+    ): String!
+
+    setIpfsData(
+        options: SetIpfsDataOptions!
+        connection: Ethereum_Connection
+    ): SetIpfsDataResult!
+}
+
+type SetIpfsDataOptions {
+    address: String!
+    data: String!
+}
+
+type SetIpfsDataResult {
+    ipfsHash: String!
+    txReceipt: String!
 }
